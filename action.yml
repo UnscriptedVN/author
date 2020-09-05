@@ -1,26 +1,31 @@
 name: "Build Ren'Py Project"
-author: 'Project Alice'
+author: "Unscripted"
 description: "Build your VN project using a specified Ren'Py SDK version"
 inputs:
   sdk-version:
     description: "The version of the Ren'Py SDK to use"
     required: true
-    default: '7.3.2'
+    default: "7.3.2"
   project-dir:
     description: "The path to the directory where the project exists"
     required: true
-    default: '.'
+    default: "."
+  import-steam-libs:
+    description: "Whether to import the Steam libraries"
+    required: false
+    default: false
 outputs:
   dir:
     description: "The directory where the distributed files exist"
   version:
     description: "The built version of the project"
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: "docker"
+  image: "Dockerfile"
   args:
     - ${{ inputs.sdk-version }}
     - ${{ inputs.project-dir }}
+    - ${{ inputs.import-steam-libs }}
 branding:
-  color: 'gray-dark'
-  icon: 'archive'
+  color: "gray-dark"
+  icon: "archive"

@@ -6,10 +6,11 @@ This GitHub action allows you to make distributable builds of a Ren'Py visual no
 
 ```yml
 - name: Build VN project
-  uses: ProjectAliceDev/renpy-build-action@master
+  uses: UnscriptedVN/renpy-build-action@master
   with:
-    sdk-version: '6.99.12.4'
-    project-dir: '.'
+    sdk-version: "6.99.12.4"
+    project-dir: "."
+    import-steam-libs: false
   env:
     SDL_AUDIODRIVER: dummy
     SDL_VIDEODRIVER: dummy
@@ -20,6 +21,8 @@ This GitHub action allows you to make distributable builds of a Ren'Py visual no
 - `sdk-version`: The version of the Ren'Py SDK to use while building. Will default to `7.3.2` if none is found.
 
 - `project-dir`: The directory where the project exists. Will default to `'.'` (root) if none is found.
+
+- `import-steam-libs`: Whether to import the Steam libraries. Defaults to `false`.
 
 ### Outputs
 

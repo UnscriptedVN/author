@@ -11,6 +11,17 @@ tar -xf ./${sdk_name}.tar.bz2
 rm ./${sdk_name}.tar.bz2
 mv ./${sdk_name} ../renpy
 
+if $3; then
+    echo "Downloading Steam libraries..."
+    wget -q http://www.renpy.org/dl/steam/renpy-steam-libs.zip
+    unzip renpy-steam-libs.zip
+    rm renpy-steam-libs.zip
+    echo "Copying Steam libraries over to the Ren'Py SDK..."
+    cp -rv lib/ ../renpy/lib/
+    rm -r lib
+    echo "Files copied."
+fi
+
 echo "Building the project at $2..."
 if ../renpy/renpy.sh ../renpy/launcher distribute $2; then
     built_dir=$(ls | grep '\-dists')
