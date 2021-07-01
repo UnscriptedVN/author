@@ -6,7 +6,7 @@ This GitHub action allows you to make distributable builds of a Ren'Py visual no
 
 ```yml
 - name: Build VN project
-  uses: UnscriptedVN/renpy-build-action@master
+  uses: UnscriptedVN/author@master
   with:
     sdk-version: "6.99.12.4"
     project-dir: "."
